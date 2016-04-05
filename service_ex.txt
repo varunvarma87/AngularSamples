@@ -1,0 +1,139 @@
+create service 
+ 
+
+services/gadgetservice
+
+gadjetservice.js
+/**
+ * Created by Anvesh on 5/6/2015.
+ */
+
+var app = angular.module('myapp',[]);
+app.service("gadgetSvc",function(){
+
+    var gadgets = [
+        {
+            "item":"1",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 189,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"2",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 289,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"3",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 389,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        }
+    
+
+    return {
+        getGadgets: function () {
+            return gadgets;
+        },
+        addGadget:function(gadget){
+            gadgets.push(gadget)
+        }
+
+    }
+
+
+
+}])
+
+
+
+gadget.html
+
+
+<div>
+    <input type="text" ng-model="test">
+
+    hi {{user.firstName}} select you r gadgets
+    <table>
+        <tr><td>thumbnailImage</td>
+            <th>name</th>
+            <th>salePrice</th>
+            <th>shortDescription</th>
+        </tr>
+        <tr ng-repeat="gadget in gadgets|filter:test">
+            <td><img src="{{gadget.thumbnailImage}}"></td>
+            <td>{{gadget.name}}</td>
+            <td>{{gadget.salePrice}}</td>
+
+            <td>{{gadget.shortDescription}}</td>
+
+
+
+
+        </tr>
+
+
+
+
+    </table>
+</div>
+
+<div>
+    <button type="button" ng-click="showaddgadget()">addgadget</button>
+</div>
+
+<div ng-if="add">
+
+    item <input type="text" ng-model="gadget.item"><br>
+    name <input type="text" ng-model="gadget.name"><br>
+    salePrice <input type="text" ng-model="gadget.salePrice"><br>
+    shortDescription<input type="text" ng-model="gadget.shortDescription"><br>
+    <button type="button" ng-click="addgadget()">Add</button>
+</div>
+
+
+gadgetController
+
+
+/**
+ * Created by Anvesh on 5/3/2015.
+ */
+angular.module('myApp').controller('gadgetsController',['$scope','gadgetSvc',function($scope,gadgetSvc){
+
+function init() {
+    $scope.gadgets = gadgetSvc.getGadgets();
+    //console.log($scope.gadgets);
+    $scope.gadget = {};
+
+    $scope.showaddgadget = function () {
+
+        $scope.add = true;
+    }
+    $scope.addgadget = function () {
+        var item = $scope.gadget;
+        gadgetSvc.addGadget(item);
+    }
+
+}init();
+
+
+
+
+   /* $scope.gadgets=[
+
+        {image:"app/images/iphone.jpg",device:"iphone",company:"apple",cost:"700"},
+        {image:"app/images/ipad.png",device:"ipad",company:"apple",cost:"500"},
+        {image:"app/images/ipod.jpg",device:"ipod",company:"apple",cost:"200"}
+
+
+    ];*/
+
+
+}]);

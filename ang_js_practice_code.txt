@@ -1,0 +1,290 @@
+0)
+directly giving values to form thorough controller
+$scope.firstname="anvesh";
+
+1)
+when user name and password given not button
+<p ng-change="fullname()"></p>
+
+$scope.fullname=function(){
+return fm+""+ln;
+
+}
+
+1)getting values from form to controller and printing to console-
+/**
+ * Created by Anvesh on 5/2/2015.
+ */
+var app=angular.module("myApp",[]);
+app.controller("registerController",function($scope){
+
+    $scope.register = function (){
+
+        console.log($scope.firstName);
+        console.log($scope.password);
+
+
+
+    }
+});
+
+2)getting values into obj
+
+button-register-console.log($scope.user)
+user{}---init()
+ng-model="user.fn";
+ */
+var app=angular.module("myApp",[]);
+app.controller("registerController",function($scope){
+
+    $scope.register = function (){
+        console.log($scope.user);
+    };
+
+    function init(){
+
+        $scope.user={
+            firstName:"",
+            password:""
+
+        };
+
+
+    }init();
+4) 
+
+init-
+        $scope.states=[
+
+            {statecode:"ap",name:"andhrapradesh"},
+            {statecode:"tg",name:"telangana"}
+        ]
+state:<select ng-model="user.state" ng-options="state.name for state in states"></select>
+other way
+
+ 
+
+
+when u give user.state state obj is joined in user obj
+4)
+
+state:<select ng-model="user.state" ng-change="loadcity()" ng-options="state.name for state in states"></select>
+    city:<input ng-model="user.city" >
+
+user.city is combined in user obj
+
+$scope.states=[
+
+            {statecode:"ap",name:"andhrapradesh",city:"vijayawada"},
+            {statecode:"tg",name:"telangana",city:"hyderabad"}
+        ]
+ $scope.loadcity = function (){
+       $scope.user.city = $scope.user.state.city;
+
+    };
+5)
+displaying page in another page
+<div  ng-hide="displaypage">
+
+First Name: <input type="text" ng-model="user.firstName"><br>
+password: <input type="password" ng-model="user.password"><br>
+    email: <input type="text" ng-model="user.email"><br>
+    state:<select ng-model="user.state" ng-change="loadcity()" ng-options="state.name for state in states"></select>
+    city:<input ng-model="user.city">
+
+    <input type="button" ng-click="register()" value="click"/>
+
+<br>
+</div>
+<div ng-include="welcomeUrl"></div>
+
+given--
+
+register controller--
+
+
+angular.module('myApp').controller('registerController', ['$scope', function($scope) {
+    $scope.register = function(){
+       // console.log($scope.user);
+       $scope.displaypage=true;
+        $scope.welcomeUrl="app/templates/welcome.html"
+    };
+    $scope.loadcity = function(){
+        console.log($scope.user.city);
+       $scope.user.city = $scope.user.state.city;
+
+    };
+
+    function init(){
+
+        $scope.user={
+            firstName:"",
+            password:"",
+            email:""
+
+        };
+        $scope.displaypage=false;
+       $scope.states=[
+
+            {statecode:"ap",name:"andhrapradesh",city:"vijayawada"},
+            {statecode:"tg",name:"telangana",city:"hyderabad"}
+        ]
+
+
+    }init();
+
+
+}]);
+
+welcome.controller
+
+angular.module('myApp').controller('welcomeController', ['$scope', function($scope) {}]);
+
+welcome.html
+
+
+<div ng-controller="welcomeController" >
+
+    welcome to my application
+
+    <table>
+        <tr>
+            <th>username</th>
+            <th>password</th>
+            <th>email</th>
+        </tr>
+        <tr>
+            <td>{{user.firstName}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.email}}</td>
+ </tr>
+</table>
+</div>
+
+
+6)moving demo.html to register.html
+
+<div  ng-include="registerpage" ng-hide="displaypage">
+
+</div>
+
+
+register.html
+
+
+First Name: <input type="text" ng-model="user.firstName"><br>
+password: <input type="password" ng-model="user.password"><br>
+email: <input type="text" ng-model="user.email"><br>
+state:<select ng-model="user.state" ng-change="loadcity()" ng-options="state.name for state in states"></select>
+city:<input ng-model="user.city">
+
+<input type="button" ng-click="register()" value="click"/>
+
+registercontroler
+
+/**
+ * Created by Anvesh on 5/2/2015.
+ */
+angular.module('myApp').controller('registerController', ['$scope', function($scope) {
+    $scope.register = function(){
+       // console.log($scope.user);
+       $scope.displaypage=true;
+        $scope.welcomeUrl="app/templates/welcome.html"
+    };
+    $scope.loadcity = function(){
+        console.log($scope.user.city);
+       $scope.user.city = $scope.user.state.city;
+
+    };
+
+    function init(){
+   $scope.registerpage="app/templates/register.html"
+        $scope.user={
+            firstName:"",
+            password:"",
+            email:""
+
+        };
+        $scope.displaypage=false;
+       $scope.states=[
+
+            {statecode:"ap",name:"andhrapradesh",city:"vijayawada"},
+            {statecode:"tg",name:"telangana",city:"hyderabad"}
+        ]
+
+
+    }init();
+
+
+}]);
+
+
+
+
+6)
+gadgets.html
+<div ng-controller="gadgetsController">
+
+    hi {{user.firstName}} select you r gadgets
+    <table>
+        <tr>
+            <th>device</th>
+            <th>company</th>
+            <th>cost</th>
+        </tr>
+        <tr ng-repeat="gadget in gadgets">
+            <td>{{gadget.device}}</td>
+            <td>{{gadget.company}}</td>
+
+            <td>{{gadget.cost}}</td>
+
+
+
+
+        </tr>
+
+
+
+
+    </table>
+</div>
+
+gadgets.controller
+
+/**
+ * Created by Anvesh on 5/3/2015.
+ */
+angular.module('myApp').controller('gadgetsController',['$scope',function($scope){
+
+    $scope.gadgets=[
+
+        {device:"ipad",company:"apple",cost:"600"},
+        {device:"ipad",company:"apple",cost:"600"},
+        {device:"ipad",company:"apple",cost:"600"}
+
+
+    ];
+
+
+}]);
+
+registercon.js
+angular.module('myApp').controller('registerController', ['$scope', function($scope) {
+    $scope.register = function(){
+       // console.log($scope.user);
+       $scope.displaypage=true;
+       // $scope.welcomeUrl="app/templates/welcome.html"
+        $scope.gadgetsUrl="app/templates/gadgets.html"
+    };
+
+image==
+
+ <td><img src="{{gadget.image}}"></td>
+
+
+
+
+
+
+
+

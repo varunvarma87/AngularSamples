@@ -1,0 +1,224 @@
+promise--getting the data frm backend asyncronously without waiting for the request ....since js is single threaded in environment thats why we use promises...
+
+while page is loading the data is gng to fetch
+
+in gadgetsvc
+first have a gadjets.json file
+/**
+ * Created by Anvesh on 5/6/2015.
+ */
+
+app.service("gadgetSvc",['$http','$q',function($http,$q){
+
+  /* var gadgets = [
+        {
+            "item":"1",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 189,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"2",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 289,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"3",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 389,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        }
+    ];*/
+
+    return {
+        getGadgets: function () {
+          //create a promise variable or object
+            var deferred = $q.defer();
+             //if success resolve the response
+//if error reject the response with promise variable
+
+              $http.get("app/data/gadgets.json")
+                 .success(function(response){
+                 deferred.resolve(response.gadgets);
+
+            }).error(function(response){
+                      deferred.reject(response);
+            })
+         //return deferred obj
+
+            return deferred.promise;
+
+
+
+        },
+        addGadget:function(gadget){
+            gadgets.push(gadget)
+        }
+
+    }
+
+
+
+}])
+
+gadgetController
+
+in function init() get the data by calling gadgetSvc.grtGadgets().then(function(response){scope.gadgets=response});
+
+/**
+ * Created by Anvesh on 5/3/2015.
+ */
+angular.module('myApp').controller('gadgetsController',['$scope','gadgetSvc',function($scope,gadgetSvc){
+
+function init() { 
+    gadgetSvc.getGadgets().then(function(response){ //call back function
+        $scope.gadgets = response;
+    })
+    //console.log($scope.gadgets);
+    $scope.gadget = {};
+
+    $scope.showaddgadget = function () {
+
+        $scope.add = true;
+    }
+    $scope.addGadget = function () {
+        var item = $scope.gadget;
+        gadgetSvc.addGadget(item);
+    }
+
+}init();
+
+
+
+
+   /* $scope.gadgets=[
+
+        {image:"app/images/iphone.jpg",device:"iphone",company:"apple",cost:"700"},
+        {image:"app/images/ipad.png",device:"ipad",company:"apple",cost:"500"},
+        {image:"app/images/ipod.jpg",device:"ipod",company:"apple",cost:"200"}
+
+
+    ];*/
+
+
+}]);
+
+gadgets.html
+<div>
+    <input type="text" ng-model="test">
+
+    hi {{user.firstName}} select you r gadgets
+    <table>
+        <tr><td>thumbnailImage</td>
+            <th>name</th>
+            <th>salePrice</th>
+            <th>shortDescription</th>
+        </tr>
+        <tr ng-repeat="gadget in gadgets|filter:test">
+            <td><img src="{{gadget.thumbnailImage}}"></td>
+            <td>{{gadget.name}}</td>
+            <td>{{gadget.salePrice}}</td>
+
+            <td>{{gadget.shortDescription}}</td>
+
+
+
+
+        </tr>
+
+
+
+
+    </table>
+</div>
+
+<div>
+    <button type="button" ng-click="showaddgadget()">addgadget</button>
+</div>
+
+<div ng-if="add">
+
+    item <input type="text" ng-model="gadget.item"><br>
+    name <input type="text" ng-model="gadget.name"><br>
+    salePrice <input type="text" ng-model="gadget.salePrice"><br>
+    shortDescription<input type="text" ng-model="gadget.shortDescription"><br>
+    <button type="button" ng-click="addgadget()">Add</button>
+</div>
+
+
+calling once
+/**
+ * Created by Anvesh on 5/6/2015.
+ */
+
+app.service("gadgetSvc",['$http','$q',function($http,$q){
+
+  /* var gadgets = [
+        {
+            "item":"1",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 189,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"2",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 289,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        },
+        {
+            "item":"3",
+            "name": "Apple iPod Touch 4th Generation 32GB with Bonus Accessory Kit",
+            "salePrice": 389,
+            "shortDescription": "The world's most popular portable gaming device is now even more fun. Listen to your favorite albums. Send text messages over Wi-Fi with iMessage. Record HD video. Make FaceTime calls. iPod touch even works with iCloud, which stores your content and pushes it to all your devices.",
+            "thumbnailImage": "http://i.walmartimages.com/i/p/11/13/00/02/31/1113000231755_100X100.jpg",
+            "productUrl": "http://www.walmart.com/ip/Apple-iPod-Touch-8GB-32GB-and-64GB-newest-model/15076191"
+        }
+    ];*/
+    var gadgets = [];
+
+    return {
+        getGadgets: function () {
+
+            var deferred = $q.defer();
+
+            if (gadgets.length > 0) {
+                deferred.resolve(gadgets);
+            }
+            else {
+                $http.get("app/data/gadgets.json")
+                    .success(function (response) {
+
+                        gadgets = response.gadgets;
+                        deferred.resolve(response.gadgets);
+
+                    }).error(function (response) {
+                        deferred.reject(response);
+                    })
+
+
+                return deferred.promise;
+
+
+            }}
+            ,
+            addGadget:function (gadget) {
+                gadgets.push(gadget)
+            }
+
+        }
+
+
+
+}])

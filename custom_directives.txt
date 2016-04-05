@@ -1,0 +1,4 @@
+directive?
+
+whenevr you want the dom manipulation or repeated use of html elements accross the application we use directive
+

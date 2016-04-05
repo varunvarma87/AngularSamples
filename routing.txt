@@ -1,0 +1,98 @@
+demo.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="app/controllers/registerController.js"></script>
+    <script src="app/controllers/welcomeController.js"></script>
+    <script src="app/controllers/gadgetsController.js"></script>
+    <script src="app/controllers/menuController.js"></script>
+    <link rel="stylesheet" href="app/styles/styles.css"/>
+
+</head>
+<body ng-app='myApp'>
+<div ng-controller="menuController">
+    <div ng-include="menupageUrl"></div>
+
+</div>
+<div ui-view></div>
+
+
+menucontroller
+
+angular.module('myApp').controller('menuController',['$scope',function($scope) {
+
+    function init(){
+
+        $scope.menupageUrl="app/templates/menu.html";
+
+        $scope.menu={
+            brand:"mythri",
+            menulist:[
+
+                {name:"home",url:'/home'},
+                {name:"products",url:'/products'},
+                {name:"aboutus",url:'/aboutus'},
+                {name:"contactus"}
+            ]
+        }
+
+    }init();
+
+
+}]);
+
+
+menu.html
+
+<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+<div class="container-fluid">
+    <div class="navbar-header"><a class="navbar-brand" href="#">{{menu.brand}}</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-menubuilder">
+        <ul class="nav navbar-nav navbar-left">
+            <li ng-repeat="item in menu.menulist"><a href="#{{item.url}}">{{item.name}}</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</div>
+
+
+app.js
+
+var app = angular.module('myApp',['ui.router']);
+app.config(function($stateProvider,$urlRouterProvider) {
+ $urlRouterProvider.otherwise("/");
+
+$stateProvider
+     .state('home', {
+      url: "/",
+      templateUrl: "app/templates/home.html"
+     })
+
+     .state('products', {
+      url: '/products',
+      templateUrl: "app/templates/products.html"
+     })
+     .state('aboutus', {
+      url: "/aboutus",
+      templateUrl: "app/templates/aboutus.html"
+     })
+});

@@ -1,0 +1,3 @@
+http://www.ng-newsletter.com/advent2013/#!/
+http://tutorials.jenkov.com/angularjs/forms.html
+https://lostechies.com/gabrielschenker/category/angularjs/

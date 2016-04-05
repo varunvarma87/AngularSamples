@@ -1,0 +1,74 @@
+#3: Controller with a Module
+
+If you have been learning Angular, you know that Angular prefers that you define a module for your Angular application. The module is the component that ties all of the other Angular application components together.
+
+After defining a module, you define a controller and register it with the module. That way the html can find the controller without needing to put the controller function in the global namespace of the application.
+
+        var app = angular.module(“movieHunter”, []);
+
+        app.controller(“SearchByMovieCtrl”,
+                function ($scope) {
+                    $scope.movie = {
+                        title: ‘The Fellowship of the Ring’,
+                        director: ‘Jackson’,
+                        date: ‘2001-12-19',
+                        mpaa: ‘PG-13'
+                    }
+                });
+#4 Controller with a Module and Function Declaration
+
+Some developers don’t like to put an entire function inside of a parameter of a method call. So you can instead define a function and pass a reference to it to the registration function as shown below.
+
+    var app = angular.module(“movieHunter”, []);
+
+    function SearchByMovieCtrl($scope) {
+        $scope.movie = {
+            title: ‘The Fellowship of the Ring’,
+            director: ‘Jackson’,
+            date: ‘2001-12-19',
+            mpaa: ‘PG-13'
+        }
+    };
+
+    app.controller(“SearchByMovieCtrl”,
+            SearchByMovieCtrl);
+#5 Controller with a Module and Function Expression
+
+This technique is similar to #4 above, but with a function expression. (If you are not sure of the difference between a function declaration and function expression, check out this post.)
+
+    var app = angular.module(“movieHunter”, []);
+
+    var SearchByMovieCtrl = function ($scope) {
+        $scope.movie = {
+            title: ‘The Fellowship of the Ring’,
+            director: ‘Jackson’,
+            date: ‘2001-12-19',
+            mpaa: ‘PG-13'
+        }
+    };
+
+    app.controller(“SearchByMovieCtrl”,
+            SearchByMovieCtrl);
+#8 Controller with IIFE
+
+A key issue with several of the above techniques was concern about the global namespace. Any variable or function declared external to a function becomes part of the global namespace of the application. This can be a problem, especially as the application gets larger.
+
+One way to mitigate this problem is to use an Immediately Invoked Function Expression or IIFE (pronounced “iffy”). The idea of an IIFE is that if variables and functions are declared within a function, then the variables and functions are local to that function and not part of the global namespace.
+
+You can wrap *any* of the above examples in an IIFE. Below is the code for example #7 wrapped in an IIFE:
+
+    (function () {
+        var app = angular.module(“movieHunter”, []);
+
+        var SearchByMovieCtrl = function () {
+            this.movie = {
+                title: ‘The Fellowship of the Ring’,
+                director: ‘Jackson’,
+                date: ‘2001-12-19',
+                mpaa: ‘PG-13'
+            }
+        };
+
+        app.controller(“SearchByMovieCtrl”,
+                SearchByMovieCtrl);
+    })();
