@@ -1,0 +1,259 @@
+{
+    "requestURI": "/angularTaxId",
+
+    "pageNameBasePath": "angularTaxId",
+
+    "templateBasePath": "/public/templates",
+
+    "i18n": {
+        "contentPath": "path:./locales",
+        "fallback": "en-US"
+    },
+
+    "services": {
+        "servicecore": {
+            "rejectUnauthorized" : false,
+            "asfSchemaOverride" : true,
+            "socketTimeout": 80000,
+            "maxSockets": 30,
+            "keepAlive": true
+        },
+        "walletfi-paypal": {
+            "socketTimeout": 80000
+        }
+    },
+
+    "express": {
+        "view engine": "js",
+        "view cache": false,
+        "views": "path:./.build/templates",
+        "mountpath": "/angularTaxId"
+    },
+
+    "view engines": {
+        "js": {
+            "module": "engine-munger",
+            "renderer": {
+                "method": "js",
+                "arguments": [
+                    { "cache": true, "helpers": [ "ppdustjs-filters-secure", "dustjs-helpers" ] },
+                    {
+                        "views": "config:express.views",
+                        "view engine": "config:express.view engine",
+                        "i18n": "config:i18n"
+                    }
+                ]
+            }
+        }
+    },
+
+    "middleware": {
+
+        "appsec": {
+            "enabled": true,
+            "priority": 110,
+            "module": {
+                "name": "lusca",
+                "arguments": [
+                    {
+                        "csrf": false,
+                        "xframe": "SAMEORIGIN",
+                        "p3p": false,
+                        "csp": true
+                    }
+                ]
+            }
+        },
+
+        "logger": {
+            "module": {
+                "name": "morgan",
+                "arguments": [{
+                    "format": "tiny"
+                }]
+            }
+        },
+
+        "static": {
+            "module": {
+                "arguments": [ "path:./.build" ]
+            }
+        },
+
+        "cal": {
+            "enabled": true,
+            "priority": 90,
+            "module": {
+                "name": "cal/middleware"
+            }
+        },
+
+        "ppcommons": {
+            "enabled": true,
+	        "priority": 92,
+            "module": {
+                "name": "commons-paypal",
+                "arguments": [{
+                    "cryptKey": "vault:encrypted_rlogid_crypt_key",
+                    "macKey": "vault:encrypted_rlogid_mac_key"
+                }]
+            }
+        },
+
+        "expressMeta": {
+            "enabled": true,
+            "priority": 93,
+            "module": {
+                "name": "express-meta"
+            }
+        },
+
+        "pplogger": {
+            "enabled": false,
+            "priority": 94,
+            "module": {
+                "name": "pplogger",
+                "arguments": [{
+                    "type": "cal"
+                }]
+            }
+        },
+
+        "servicecore": {
+            "enabled": true,
+            "priority": 104,
+            "rejectUnauthorized": false,
+            "module": {
+                "name": "servicecore"
+            }
+        },
+
+        "expressView": {
+            "priority": 100,
+            "enabled": true,
+            "module": {
+                "name": "engine-munger/lib/expressView"
+            }
+        },
+
+        "session": {
+            "enabled": true,
+            "priority": 100,
+            "module": {
+                "name": "connect-mayfly/middleware",
+                "arguments": [{
+                    "cryptKey": "vault:encrypted_mayflysession_crypt_key",
+                    "macKey": "vault:encrypted_mayflysession_mac_key",
+                    "key": "23rfgju67489o87tlikyfmunbgfsdasXZ",
+                    "secret": "d4rud3_54nd570rm_0n_r3p347",
+                    "cookie": {
+                        "path": "/",
+                        "httpOnly": true,
+                        "maxAge": null
+                    },
+                    "proxy": null
+                }]
+            }
+        },
+
+        "encryptedcookies": {
+            "enabled": true,
+            "priority": 103,
+            "module": {
+                "name": "encryptedcookies-paypal",
+                "arguments": [{
+                    "encryptionKey": "1h1P/y6F/kg6OlM7oeTms2Yr6Lw=",
+                    "macKey": "SF4HNI/A1U3xPww2eylPqJNQIvU="
+                }]
+            }
+        },
+
+        "securitycontext": {
+            "enabled": true,
+            "priority": 110,
+            "module": {
+                "name": "securitycontext-paypal"
+            }
+        },
+
+        "auth": {
+            "enabled": true,
+            "priority": 111,
+            "module": {
+                "name": "auth-paypal",
+                "arguments": [{
+                    "cookieEncryptionKey": "vault:encrypted_crypt_key",
+                    "cookieMacKey": "vault:encrypted_mac_key"
+                }]
+            }
+        },
+
+
+        "locale": {
+            "enabled": true,
+            "priority": 115,
+            "module": {
+                "name": "locale"
+            }
+        },
+
+        "decorators": {
+            "priority": 118,
+            "parallel": {
+                "locale": {
+                    "enabled": true,
+                    "module": {
+                        "name": "locale"
+                    }
+                },
+
+                "wurfl": {
+                    "enabled": true,
+                    "module": {
+                        "name": "wurfl-paypal",
+                        "arguments": [{ "capabilities": ["is_wireless_device", "is_tablet"] }]
+                    }
+                },
+
+                "experiementation": {
+                    "enabled": true,
+                    "module": "experimentation-paypal"
+                },
+
+	        "analytics-paypal": {
+                    "enabled": true,
+                    "module": {
+                        "name": "analytics-paypal",
+                        "arguments": [{"buznameBasePath": "/config/buznames/"}]
+                    }
+                }
+            }
+        },
+
+        "router": {
+            "enabled": true,
+            "priority": 130,
+            "module": {
+                "arguments": [{ "directory": "path:./routes" }]
+            }
+        },
+
+        "fileNotFound": {
+            "enabled": true,
+            "priority": 140,
+            "module": {
+                "name": "kraken-js/middleware/404",
+                "arguments": [ "errors/error404" ]
+            }
+        },
+
+        "serverError": {
+            "enabled": true,
+            "priority": 150,
+            "module": {
+                "name": "kraken-js/middleware/500",
+                "arguments": [ "errors/error500" ]
+            }
+        }
+    }
+}

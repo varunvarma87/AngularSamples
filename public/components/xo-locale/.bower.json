@@ -1,0 +1,51 @@
+{
+  "name": "xo-locale",
+  "description": "Locale resolver for checkout app",
+  "version": "0.0.18",
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "bower.json",
+    ".bower.json",
+    "components",
+    "test"
+  ],
+  "dependencies": {
+    "squid": "~0.0.100",
+    "xo-checkout": "~0.0.19",
+    "xo-login": "~0.0.52",
+    "xo-cart": "~0.1.35",
+    "xo-beaver": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.3.9",
+    "angular-route": "1.3.9",
+    "angular": "1.3.9",
+    "angular-resource": "1.3.9",
+    "angular-sanitize": "1.3.9",
+    "requirejs": "^2.1.11",
+    "requirejs-text": "~2.0.12"
+  },
+  "_release": "0.0.18",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.18",
+    "commit": "e999de64ef3707be1b4867ab6d408d50541274fb"
+  },
+  "_source": "git@github.paypal.com:NodeXOShared/xo-component-locale.git",
+  "_target": "~0.0.1",
+  "_originalSource": "xo-locale"
+}

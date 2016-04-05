@@ -1,0 +1,9 @@
+{
+	"name" : "merchant-base",
+	"main" : "build/",
+	"version" : "0.0.3",
+	"ignore": [
+		"bower.json",
+		"package.json"
+	]
+}

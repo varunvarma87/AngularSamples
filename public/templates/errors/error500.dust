@@ -1,0 +1,22 @@
+{! Temporary dust template until we get design from UED !}
+{>"layouts/master" /}
+
+{<pageTitle}
+	{@pre type="content" key="error500.pageTitle" editable="false"/}
+{/pageTitle}
+
+{<header}
+{/header}
+
+{<main}
+    <div class="row error500">
+        <div class="content-wrapper">
+            <h2>{@pre type="content" key="error500.headline"/}</h2>
+
+            <p>{@pre type="content" key="error500.errorBodyText"/}</p>
+        </div>
+    </div>
+{/main}
+
+{<footer}
+{/footer}

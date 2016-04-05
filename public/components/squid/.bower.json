@@ -1,0 +1,47 @@
+{
+  "name": "squid",
+  "description": "Squid",
+  "version": "0.0.217",
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "bower.json",
+    ".bower.json",
+    "components",
+    "test"
+  ],
+  "dependencies": {
+    "angular-mocks": "1.3.9",
+    "angular": "1.3.9",
+    "angular-resource": "1.3.9",
+    "angular-sanitize": "1.3.9",
+    "angular-ui-router": "~0.2.12",
+    "requirejs": "^2.1.11",
+    "requirejs-text": "~2.0.12",
+    "angular-extend-promises": "~1.0.0",
+    "xo-beaver": "~0.0.29",
+    "angular-ui-utils": "~0.2.1"
+  },
+  "_release": "0.0.217",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.217",
+    "commit": "ae996e1dd585112850f31dceaba0d11d94e4ceb7"
+  },
+  "_source": "git@github.paypal.com:Checkout-R/squid.git",
+  "_target": "~0.0.49",
+  "_originalSource": "squid"
+}

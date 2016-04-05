@@ -1,0 +1,11 @@
+<form name="addtax" ng-submit="submit()">
+    <div id="statusLine"></div>
+    <div>
+        <input type="hidden" name="type" id="type" ng-model="taxid.type" />
+        <label for="value">[[taxid.display]]</label>
+        <input type="text" required="" name="value" id="value" placeholder="[[taxid.value]]" ng-model="taxid.actualValue" />
+    </div>
+    <div>
+        <input type="submit" class="button primary small" value="[[ getContent('angularTaxId.save') ]]" />
+    </div>
+</form>

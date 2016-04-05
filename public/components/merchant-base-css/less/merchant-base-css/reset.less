@@ -1,0 +1,157 @@
+/**
+* @name: reset
+* @author: aagashe <Abhishek Agashe>
+* @purpose: Resets all base HTML slides.
+*/
+
+html {
+	background-color: @gray-dim;
+}
+
+// Body reset
+// -------------------------
+body {
+	font-family: @baseFontFamily;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @textColorDefault;
+	#gradient.vertical-three-colors(#ececec, #fcfcfc, 40%, #f0f0f0);
+}
+
+
+// Links
+// -------------------------
+a {
+	color: @link-color;
+	text-decoration: none;
+	text-decoration: none;
+	font-size: @baseFontSize -2;
+	&:hover,
+	&:focus {
+		color: @link-hover-color;
+	}
+}
+
+a:link, a:visited {
+	font-size: @baseFontSize - 2;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
+//Heading
+h1, h2, h3, h4, h5, h6 {
+	color: #555;
+	margin: 0;
+	font-family: @headingsFontFamily;
+	font-weight: @headingsFontWeight;
+	line-height: 1.25em;
+	color: @headingsColor;
+	text-rendering: optimizelegibility; // Fix the character spacing for headings
+
+	.small {
+		font-weight: normal;
+		line-height: 1;
+		color: @headingsColorLight;
+	}
+}
+
+h1 {
+	font-size: @baseFontSize + 6;
+}
+
+h2 {
+	font-size: @baseFontSize + 4;
+	font-weight: bold;
+	color: @gray;
+}
+
+i {
+	background: transparent url(https://www.paypalobjects.com/webstatic/i/ex_me2/sprite/GlobalSprite_111_1x.png) no-repeat 0 0;
+	width: 28px;
+	height: 18px;
+	display: inline-block;
+	vertical-align: middle;
+	float: left;
+}
+
+//Paragraph
+p {
+	margin: 0;
+	line-height: 1.5em;
+}
+
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+ul, ol {
+	padding: 0;
+	margin: 0;
+
+	list-style-type: none;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+li {
+	line-height: @baseLineHeight;
+}
+
+// Remove default list styles
+ul.unstyled,
+ol.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+// Single-line list items
+ul.inline,
+ol.inline {
+	margin-left: 0;
+	list-style: none;
+
+	> li {
+		display: inline-block;
+		//.ie7-inline-block();
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+// Description Lists
+dl {
+	margin-bottom: @baseLineHeight;
+}
+
+dt,
+dd {
+	line-height: @baseLineHeight;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: @baseLineHeight / 2;
+}
+
+// MISC
+// ----
+
+// Quotes
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+	content: "";
+}

@@ -1,0 +1,26 @@
+{
+  "name": "xo-checkout",
+  "description": "Shared checkout code",
+  "version": "0.0.33",
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "index.js",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "squid": "~0.0.1"
+  }
+}

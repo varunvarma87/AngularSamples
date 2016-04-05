@@ -1,0 +1,23 @@
+<form name="loginForm" class="proceed" content="xospartaweb" novalidate="novalidate" autocomplete="off" ng-submit="loginForm.$valid && onSubmit()" ng-class="{true: 'validated'}[validated]" novalidate>
+    <div class="inputField emailField confidential">
+        <label for="email" class="focus accessAid">
+            {{ content('index.EmailLabel') }}
+        </label>
+        <input ng-model="auth.email" name="username" type="email" value=""
+               autocapitalize="off" aria-required="false" autocomplete="off" placeholder="{{ content('index.EmailLabel') }}" data-error-text="{{ content('email.invalid') }}" xo-error-tooltip required autofocus/>
+    </div>
+
+    <div class="inputField passwordField confidential   ">
+        <label for="password" class="focus accessAid">
+            {{ content('login.passwordLabel') }}
+        </label>
+        <input ng-model="auth.password" name="password" type="password" value="" aria-required="true" autocapitalize="off" autocomplete="off" placeholder="{{ content('login.passwordLabel') }}" xo-error-tooltip required>
+    </div>
+
+    <input track-submit type="submit" value="{{ content('login.loginBtn') }}" class="btn full loginBtn" ng-click="validated=true" />
+    
+    <div class="center mt10 secondary" id="forgotPasswordSection">
+        <a href="/merchantpaymentweb?cmd=_account-recovery&from=PayPal" id="forgotPassword" target="_blank" xo-popup="">
+            {{ content('common.forgotYourPassword') }}</a>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+{>"layouts/master"/}
+
+	{<pageTitle}{@pre type="content" key="login.login" /}{/pageTitle}
+	{<heading}
+		<h2>{@pre type="content" key="login.login" /}</h2>
+	{/heading}
+	{<main}
+		<div class="section row">
+			<div class="col-lg-4">
+				<form action="{requestURI}/signin" method="post" class="login-form">
+                        <p>
+                                <label for="username" class="control-label">{@pre type="content" key="login.username" /}</label>
+                                <input class='form-control' type="text" name="username" id="username" value="beamdaddy@paypal.com"/>
+                        </p>
+
+                        <p>
+                                <label for="password" class="control-label">{@pre type="content" key="login.password" /}</label>
+                                <input type="password" class='form-control' name="password" id="password" value="11111111" />
+                        </p>
+                        <input value='{@pre type="content" key="login.login" /}' type='submit' class="btn btn-primary">
+                        <input type="hidden" name="returnUrl" id="returnUrl" value="{returnUrl}" />
+                        <input type="hidden" name="type" id="type" value="0" />
+                        <input type="hidden" name="_csrf" value="{_csrf}" />
+			    </form>
+			</div>
+		</div>
+	{/main}

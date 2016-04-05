@@ -1,0 +1,33 @@
+{
+  "name": "xo-content",
+  "description": "Content Component",
+  "version": "0.0.44",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "index.js",
+    "test",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ]
+}

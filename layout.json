@@ -1,0 +1,555 @@
+{
+    "root": "services",
+    "layout": {
+        "protocol": "https",
+        "transport": "ppaas",
+        "hosts": {
+        
+            "riskresolutiondecisionserv": {
+                "hostname": "%{riskresolutiondecisionserv_host}",
+                "port": "%{riskresolutiondecisionserv_port}"
+            },
+        
+            "paymentapiplatformserv": {
+                "hostname": "%{paymentapiplatformserv_host}",
+                "port": "%{paymentapiplatformserv_port}"
+            },
+        
+            "walletfiserv": {
+                "hostname": "%{walletfiserv_host}",
+                "port": "%{walletfiserv_port}"
+            },
+        
+            "ppcardmanagementv2serv": {
+                "hostname": "%{ppcardmanagementv2serv_host}",
+                "port": "%{ppcardmanagementv2serv_port}"
+            },
+        
+            "fpaccountmanagementserv": {
+                "hostname": "%{fpaccountmanagementserv_host}",
+                "port": "%{fpaccountmanagementserv_port}"
+            },
+        
+            "fpcontractserv": {
+                "hostname": "%{fpcontractserv_host}",
+                "port": "%{fpcontractserv_port}"
+            },
+        
+            "riskassessmentserv": {
+                "hostname": "%{riskassessmentserv_host}",
+                "port": "%{riskassessmentserv_port}"
+            },
+        
+            "walletactivitydetailsserv": {
+                "hostname": "%{walletactivitydetailsserv_host}",
+                "port": "%{walletactivitydetailsserv_port}"
+            },
+        
+            "unpnotifyserv": {
+                "hostname": "%{unpnotifyserv_host}",
+                "port": "%{unpnotifyserv_port}"
+            },
+        
+            "creditrepaymentserv": {
+                "hostname": "%{creditrepaymentserv_host}",
+                "port": "%{creditrepaymentserv_port}"
+            },
+        
+            "shippinglabelserv": {
+                "hostname": "%{shippinglabelserv_host}",
+                "port": "%{shippinglabelserv_port}"
+            },
+        
+            "invoicingserv": {
+                "hostname": "%{invoicingserv_host}",
+                "port": "%{invoicingserv_port}"
+            },
+        
+            "risksessionreadserv": {
+                "hostname": "%{risksessionreadserv_host}",
+                "port": "%{risksessionreadserv_port}"
+            },
+        
+            "altpaymentmethodserv": {
+                "hostname": "%{altpaymentmethodserv_host}",
+                "port": "%{altpaymentmethodserv_port}"
+            },
+        
+            "shippinglabelreadserv": {
+                "hostname": "%{shippinglabelreadserv_host}",
+                "port": "%{shippinglabelreadserv_port}"
+            },
+        
+            "fpactivityserv": {
+                "hostname": "%{fpactivityserv_host}",
+                "port": "%{fpactivityserv_port}"
+            },
+        
+            "elogserv": {
+                "hostname": "%{elogserv_host}",
+                "port": "%{elogserv_port}"
+            },
+        
+            "holdingrestserv": {
+                "hostname": "%{holdingrestserv_host}",
+                "port": "%{holdingrestserv_port}"
+            },
+        
+            "testaccountserv": {
+                "hostname": "%{testaccountserv_host}",
+                "port": "%{testaccountserv_port}"
+            },
+        
+            "activitysearchserv": {
+                "hostname": "%{activitysearchserv_host}",
+                "port": "%{activitysearchserv_port}"
+            },
+        
+            "vaultplatformserv": {
+                "hostname": "%{vaultplatformserv_host}",
+                "port": "%{vaultplatformserv_port}"
+            },
+        
+            "offerserv": {
+                "hostname": "%{offerserv_host}",
+                "port": "%{offerserv_port}"
+            },
+        
+            "catalognodeserv": {
+                "hostname": "%{catalognodeserv_host}",
+                "port": "%{catalognodeserv_port}"
+            },
+        
+            "fponboardingserv_r": {
+                "hostname": "%{fponboardingserv_r_host}",
+                "port": "%{fponboardingserv_r_port}"
+            },
+        
+            "acquirerregistrationserv": {
+                "hostname": "%{acquirerregistrationserv_host}",
+                "port": "%{acquirerregistrationserv_port}"
+            },
+        
+            "productbundlesserv": {
+                "hostname": "%{productbundlesserv_host}",
+                "port": "%{productbundlesserv_port}"
+            },
+        
+            "complianceprofileserv": {
+                "hostname": "%{complianceprofileserv_host}",
+                "port": "%{complianceprofileserv_port}"
+            },
+        
+            "metadataserv": {
+                "hostname": "%{metadataserv_host}",
+                "port": "%{metadataserv_port}"
+            },
+        
+            "riskdisputemetadatasrv": {
+                "hostname": "%{riskdisputemetadatasrv_host}",
+                "port": "%{riskdisputemetadatasrv_port}"
+            },
+        
+            "compliancetxnreadserv": {
+                "hostname": "%{compliancetxnreadserv_host}",
+                "port": "%{compliancetxnreadserv_port}"
+            },
+        
+            "paymentsplatformserv": {
+                "hostname": "%{paymentsplatformserv_host}",
+                "port": "%{paymentsplatformserv_port}"
+            },
+        
+            "riskprofileserv": {
+                "hostname": "%{riskprofileserv_host}",
+                "port": "%{riskprofileserv_port}"
+            },
+        
+            "postpaymentplatserv": {
+                "hostname": "%{postpaymentplatserv_host}",
+                "port": "%{postpaymentplatserv_port}"
+            },
+        
+            "riskuserverificationserv": {
+                "hostname": "%{riskuserverificationserv_host}",
+                "port": "%{riskuserverificationserv_port}"
+            },
+        
+            "compliancereadserv": {
+                "hostname": "%{compliancereadserv_host}",
+                "port": "%{compliancereadserv_port}"
+            },
+        
+            "complifecycleserv": {
+                "hostname": "%{complifecycleserv_host}",
+                "port": "%{complifecycleserv_port}"
+            },
+        
+            "riskauthenticationserv": {
+                "hostname": "%{riskauthenticationserv_host}",
+                "port": "%{riskauthenticationserv_port}"
+            },
+        
+            "pricingserv": {
+                "hostname": "%{pricingserv_host}",
+                "port": "%{pricingserv_port}"
+            },
+        
+            "customerintentserv": {
+                "hostname": "%{customerintentserv_host}",
+                "port": "%{customerintentserv_port}"
+            },
+        
+            "merchantactivationserv": {
+                "hostname": "%{merchantactivationserv_host}",
+                "port": "%{merchantactivationserv_port}"
+            },
+        
+            "applifecyclemgmtserv": {
+                "hostname": "%{applifecyclemgmtserv_host}",
+                "port": "%{applifecyclemgmtserv_port}"
+            },
+        
+            "merchantprefsserv": {
+                "hostname": "%{merchantprefsserv_host}",
+                "port": "%{merchantprefsserv_port}"
+            },
+        
+            "retailinstrumentserv": {
+                "hostname": "%{retailinstrumentserv_host}",
+                "port": "%{retailinstrumentserv_port}"
+            },
+        
+            "walletrmserv": {
+                "hostname": "%{walletrmserv_host}",
+                "port": "%{walletrmserv_port}"
+            },
+        
+            "walletactivitysearchserv": {
+                "hostname": "%{walletactivitysearchserv_host}",
+                "port": "%{walletactivitysearchserv_port}"
+            },
+        
+            "walletsettingserv": {
+                "hostname": "%{walletsettingserv_host}",
+                "port": "%{walletsettingserv_port}"
+            },
+        
+            "identitysecuretokenserv": {
+                "hostname": "%{identitysecuretokenserv_host}",
+                "port": "%{identitysecuretokenserv_port}"
+            },
+        
+            "onboardingplatformserv": {
+                "hostname": "%{onboardingplatformserv_host}",
+                "port": "%{onboardingplatformserv_port}"
+            },
+        
+            "compliancewlscanserv": {
+                "hostname": "%{compliancewlscanserv_host}",
+                "port": "%{compliancewlscanserv_port}"
+            },
+        
+            "devicemanagementserv": {
+                "hostname": "%{devicemanagementserv_host}",
+                "port": "%{devicemanagementserv_port}"
+            },
+        
+            "usermanagementserv": {
+                "hostname": "%{usermanagementserv_host}",
+                "port": "%{usermanagementserv_port}"
+            },
+        
+            "pxpreadserv": {
+                "hostname": "%{pxpreadserv_host}",
+                "port": "%{pxpreadserv_port}"
+            },
+        
+            "payoutsbatchprocessd": {
+                "hostname": "%{payoutsbatchprocessd_host}",
+                "port": "%{payoutsbatchprocessd_port}"
+            },
+        
+            "fpstatementserv": {
+                "hostname": "%{fpstatementserv_host}",
+                "port": "%{fpstatementserv_port}"
+            },
+        
+            "qrcodegenserv": {
+                "hostname": "%{qrcodegenserv_host}",
+                "port": "%{qrcodegenserv_port}"
+            },
+        
+            "complianceodserv": {
+                "hostname": "%{complianceodserv_host}",
+                "port": "%{complianceodserv_port}"
+            },
+        
+            "trackingeventrestserv": {
+                "hostname": "%{trackingeventrestserv_host}",
+                "port": "%{trackingeventrestserv_port}"
+            },
+        
+            "walletsendmoneyserv": {
+                "hostname": "%{walletsendmoneyserv_host}",
+                "port": "%{walletsendmoneyserv_port}"
+            },
+        
+            "devicefulfillmentserv": {
+                "hostname": "%{devicefulfillmentserv_host}",
+                "port": "%{devicefulfillmentserv_port}"
+            },
+        
+            "hereacquisitionserv": {
+                "hostname": "%{hereacquisitionserv_host}",
+                "port": "%{hereacquisitionserv_port}"
+            },
+        
+            "externalencryptionserv": {
+                "hostname": "%{externalencryptionserv_host}",
+                "port": "%{externalencryptionserv_port}"
+            },
+        
+            "devicefingerprintserv": {
+                "hostname": "%{devicefingerprintserv_host}",
+                "port": "%{devicefingerprintserv_port}"
+            },
+        
+            "crmserv": {
+                "hostname": "%{crmserv_host}",
+                "port": "%{crmserv_port}"
+            },
+        
+            "partnermanagementserv": {
+                "hostname": "%{partnermanagementserv_host}",
+                "port": "%{partnermanagementserv_port}"
+            },
+        
+            "riskprotectiondecisionserv": {
+                "hostname": "%{riskprotectiondecisionserv_host}",
+                "port": "%{riskprotectiondecisionserv_port}"
+            },
+        
+            "riskactionsreadserv": {
+                "hostname": "%{riskactionsreadserv_host}",
+                "port": "%{riskactionsreadserv_port}"
+            },
+        
+            "riskonboardingdecisionserv": {
+                "hostname": "%{riskonboardingdecisionserv_host}",
+                "port": "%{riskonboardingdecisionserv_port}"
+            },
+        
+            "walletcontactserv": {
+                "hostname": "%{walletcontactserv_host}",
+                "port": "%{walletcontactserv_port}"
+            },
+        
+            "fpeligibilityserv": {
+                "hostname": "%{fpeligibilityserv_host}",
+                "port": "%{fpeligibilityserv_port}"
+            },
+        
+            "creditfinancingserv": {
+                "hostname": "%{creditfinancingserv_host}",
+                "port": "%{creditfinancingserv_port}"
+            },
+        
+            "loyaltyserv": {
+                "hostname": "%{loyaltyserv_host}",
+                "port": "%{loyaltyserv_port}"
+            },
+        
+            "risklimitationreadserv": {
+                "hostname": "%{risklimitationreadserv_host}",
+                "port": "%{risklimitationreadserv_port}"
+            },
+        
+            "retaildirectcardserv": {
+                "hostname": "%{retaildirectcardserv_host}",
+                "port": "%{retaildirectcardserv_port}"
+            },
+        
+            "claimscollectionserv": {
+                "hostname": "%{claimscollectionserv_host}",
+                "port": "%{claimscollectionserv_port}"
+            },
+        
+            "messagecenterserv": {
+                "hostname": "%{messagecenterserv_host}",
+                "port": "%{messagecenterserv_port}"
+            },
+        
+            "emailconfirmationserv": {
+                "hostname": "%{emailconfirmationserv_host}",
+                "port": "%{emailconfirmationserv_port}"
+            },
+        
+            "merchantmanagementserv": {
+                "hostname": "%{merchantmanagementserv_host}",
+                "port": "%{merchantmanagementserv_port}"
+            },
+        
+            "fimanagementserv_ca": {
+                "hostname": "%{fimanagementserv_ca_host}",
+                "port": "%{fimanagementserv_ca_port}"
+            },
+        
+            "userplatformserv": {
+                "hostname": "%{userplatformserv_host}",
+                "port": "%{userplatformserv_port}"
+            },
+        
+            "riskgeolocationserv": {
+                "hostname": "%{riskgeolocationserv_host}",
+                "port": "%{riskgeolocationserv_port}"
+            },
+        
+            "limitsdecisionserv": {
+                "hostname": "%{limitsdecisionserv_host}",
+                "port": "%{limitsdecisionserv_port}"
+            },
+        
+            "limitslifecycleserv": {
+                "hostname": "%{limitslifecycleserv_host}",
+                "port": "%{limitslifecycleserv_port}"
+            },
+        
+            "riskactionsdecisionserv": {
+                "hostname": "%{riskactionsdecisionserv_host}",
+                "port": "%{riskactionsdecisionserv_port}"
+            },
+        
+            "paymentexperienceserv": {
+                "hostname": "%{paymentexperienceserv_host}",
+                "port": "%{paymentexperienceserv_port}"
+            },
+        
+            "commerceinsightserv": {
+                "hostname": "%{commerceinsightserv_host}",
+                "port": "%{commerceinsightserv_port}"
+            },
+        
+            "unpalertserv": {
+                "hostname": "%{unpalertserv_host}",
+                "port": "%{unpalertserv_port}"
+            },
+        
+            "payoutserv": {
+                "hostname": "%{payoutserv_host}",
+                "port": "%{payoutserv_port}"
+            },
+        
+            "paymentserv": {
+                "hostname": "%{paymentserv_host}",
+                "port": "%{paymentserv_port}"
+            },
+        
+            "webhooksplatformserv": {
+                "hostname": "%{webhooksplatformserv_host}",
+                "port": "%{webhooksplatformserv_port}"
+            },
+        
+            "compliancecasemgmtserv": {
+                "hostname": "%{compliancecasemgmtserv_host}",
+                "port": "%{compliancecasemgmtserv_port}"
+            },
+        
+            "corepayswitchserv": {
+                "hostname": "%{corepayswitchserv_host}",
+                "port": "%{corepayswitchserv_port}"
+            },
+        
+            "credentialmanagementserv": {
+                "hostname": "%{credentialmanagementserv_host}",
+                "port": "%{credentialmanagementserv_port}"
+            },
+        
+            "merchantprofiledataserv": {
+                "hostname": "%{merchantprofiledataserv_host}",
+                "port": "%{merchantprofiledataserv_port}"
+            },
+        
+            "accountrelationserv": {
+                "hostname": "%{accountrelationserv_host}",
+                "port": "%{accountrelationserv_port}"
+            },
+        
+            "buttonfactoryserv": {
+                "hostname": "%{buttonfactoryserv_host}",
+                "port": "%{buttonfactoryserv_port}"
+            },
+        
+            "unpdeliveryserv": {
+                "hostname": "%{unpdeliveryserv_host}",
+                "port": "%{unpdeliveryserv_port}"
+            },
+        
+            "disputeresolutionserv": {
+                "hostname": "%{disputeresolutionserv_host}",
+                "port": "%{disputeresolutionserv_port}"
+            },
+        
+            "documentverificationserv": {
+                "hostname": "%{documentverificationserv_host}",
+                "port": "%{documentverificationserv_port}"
+            },
+        
+            "balancemanagerserv": {
+                "hostname": "%{balancemanagerserv_host}",
+                "port": "%{balancemanagerserv_port}"
+            },
+        
+            "riskdeviceonboardserv": {
+                "hostname": "%{riskdeviceonboardserv_host}",
+                "port": "%{riskdeviceonboardserv_port}"
+            },
+        
+            "apicallhistoryserv": {
+                "hostname": "%{apicallhistoryserv_host}",
+                "port": "%{apicallhistoryserv_port}"
+            },
+        
+            "calendarserv": {
+                "hostname": "%{calendarserv_host}",
+                "port": "%{calendarserv_port}"
+            },
+        
+            "transferserv": {
+                "hostname": "%{transferserv_host}",
+                "port": "%{transferserv_port}"
+            },
+        
+            "gatewayserv": {
+                "hostname": "%{gatewayserv_host}",
+                "port": "%{gatewayserv_port}"
+            },
+        
+            "rewardserv": {
+                "hostname": "%{rewardserv_host}",
+                "port": "%{rewardserv_port}"
+            },
+        
+            "compliancepolicyserv": {
+                "hostname": "%{compliancepolicyserv_host}",
+                "port": "%{compliancepolicyserv_port}"
+            },
+        
+            "payoutsvettingserv": {
+                "hostname": "%{payoutsvettingserv_host}",
+                "port": "%{payoutsvettingserv_port}"
+            },
+        
+            "pricingplatformserv": {
+                "hostname": "%{pricingplatformserv_host}",
+                "port": "%{pricingplatformserv_port}"
+            },
+        
+            "marketingofferreadserv": {
+                "hostname": "%{marketingofferreadserv_host}",
+                "port": "%{marketingofferreadserv_port}"
+            }
+        
+        }
+    }
+}

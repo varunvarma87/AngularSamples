@@ -1,0 +1,219 @@
+// Gradient Bar Colors for buttons and alerts
+.gradientBar(@primaryColor: #0079c1, @secondaryColor: #00a1ff, @textColor: #fff, @textShadow: 0 -1px #00629c, @boxShadow: 0 1px #4dbeff inset, @borderColor: #0079c1 #00588b #004b77) {
+  color: @textColor;
+  text-shadow: @textShadow;
+
+  background-color: @secondaryColor;
+  background: -moz-linear-gradient(center bottom ,@primaryColor 0%, @primaryColor 20%, @secondaryColor 100%);/* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,@primaryColor), color-stop(20%,@primaryColor), color-stop(100%,@secondaryColor)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(bottom , @primaryColor 0%, @primaryColor 20%, @secondaryColor 100%);/* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(bottom , @primaryColor 0%, @primaryColor 20%, @secondaryColor 100%);/* IE10+ */
+  background: -o-linear-gradient(bottom , @primaryColor 0%, @primaryColor 20%, @secondaryColor 100%);/* Opera 11.10+ */
+  background: linear-gradient(bottom , @primaryColor 0%, @primaryColor 20%, @secondaryColor 100%);/* W3C */
+  border-color: @borderColor;
+  .box-shadow(@boxShadow);
+}
+.align-center{text-align:center;}
+.align-right{text-align:right;}
+.space-bottom{margin-bottom: 15px;}
+.space-top{margin-top: 20px;}
+
+
+.borderRadius(@radius: 5px) {
+	border-radius: @radius;
+
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+.borderRadii(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-webkit-border-top-right-radius: @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius: @bottomleft;
+	-webkit-border-top-left-radius: @topleft;
+
+	-moz-border-radius-topright: @topright;
+	-moz-border-radius-bottomright: @bottomright;
+	-moz-border-radius-bottomleft: @bottomleft;
+	-moz-border-radius-topleft: @topleft;
+
+	border-top-right-radius: @topright;
+	border-bottom-right-radius: @bottomright;
+	border-bottom-left-radius: @bottomleft;
+	border-top-left-radius: @topleft;
+
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+.gradient(@startColor, @endColor, @angle: top) {
+	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(@angle, @startColor, @endColor);
+	background-image: -moz-linear-gradient(@angle, @startColor, @endColor);
+	background-image: -ms-linear-gradient(@angle, @startColor, @endColor);
+	background-image: -o-linear-gradient(@angle, @startColor, @endColor);
+}
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.textShadow(@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+	text-shadow: @string;
+}
+.boxShadow(@string) {
+	box-shadow: @string;
+}
+.dropShadow(@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	box-shadow:     @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.boxSizing(@type: border-box) {
+	-webkit-box-sizing: @type;
+	-moz-box-sizing: @type;
+	-ms-box-sizing: @type;
+	box-sizing: @type;
+}
+
+.boxShadowMulti(@string1, @string2) {
+	box-shadow: @string1, @string2;
+}
+
+.transitionMulti(@transition1, @transition2) {
+	-webkit-transition: @transition1, @transition2;
+	-moz-transition: @transition1, @transition2;
+	-ms-transition: @transition1, @transition2;
+	-o-transition: @transition1, @transition2;
+	transition: @transition1, @transition2;
+}
+
+// gradient with image on same element e.g. search submit button with gray gradient n search icon
+.multiBackgrounds(@bg1, @startColor, @endColor) {
+	background: @bg1, -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)) 0 0;
+	background: @bg1, -webkit-linear-gradient(top, @startColor, @endColor) 0 0;
+	background: @bg1, -moz-linear-gradient(top, @startColor, @endColor) 0 0;
+	background: @bg1, -ms-linear-gradient(top, @startColor, @endColor) 0 0;
+	background: @bg1, -o-linear-gradient(top, @startColor, @endColor) 0 0;
+	background-color: @startColor;
+}
+
+/* mixin for creating a triangle */
+.carets(@borderColorString: transparent transparent #cee0eb,@borderWidth: 7px) {
+	border-color: @borderColorString;
+	border-style: dotted dotted solid;
+	border-width: @borderWidth;
+}
+
+.positionLeftTop(@left: 10px, @top: -15px, @zIndex: 1) {
+	left: @left;
+	top: @top;
+	z-index: @zIndex;
+}
+
+/* Mixin for bubbles */
+.bubble(@borderString: 1px solid #cee0eb, @textShadow: 0 1px @white, @background: #f4f8fb) {
+	margin: 7px 0 0;
+	padding: 8px 2.3% 8px 2.3%;
+	position: absolute;
+	border: @borderString;
+	background: @background;
+	font: 0.923em/1.417em "Arial";
+	color: @grayDark;
+	text-shadow: @textShadow;
+	.borderRadius();
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+
+/* mixin for creating carets bubbles with a border */
+.bubble-with-caret(@borderString: 1px solid #cee0eb, @textShadow: 0 1px @white, @background: #f4f8fb,
+  @caretColorBefore:transparent transparent #cee0eb , @caretColorAfter: transparent transparent #f4f8fb,
+  @leftPosBefore: 10px, @topPosBefore: -14px, @zIdxBefore: 1,
+  @leftPosAfter: 10px, @topPosAfter: -12px, @zIdxAfter: 2) {
+
+	.bubble(@borderString, @textShadow, @background);
+
+	&:before {
+		position: absolute;
+		.positionLeftTop(@leftPosBefore, @topPosBefore, @zIdxBefore);
+		.carets(@caretColorBefore);
+		font-size: @baseFontSize + 6px;
+		content: "";
+	}
+
+	&:after {
+		position: absolute;
+		.positionLeftTop(@leftPosAfter, @topPosAfter, @zIdxAfter);
+		.carets(@caretColorAfter);
+		content: "";
+	}
+}
+// Short retina mixin for setting background-image and -size
+
+.img-retina-custom(@file-1x; @file-2x; @width-1x; @height-1x) {
+  background: url("@{file-1x}") no-repeat;
+  background-size: @width-1x @height-1x;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background: url("@{file-2x}") no-repeat;
+    background-size: @width-1x @height-1x;
+  }
+}
+// Button backgrounds
+// ------------------
+.buttonBackground(@startColor, @endColor, @textColor: @white, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+	// gradientBar will set the background to a pleasing blend of these, to support IE<=9
+	.gradientBar(@startColor, @endColor, @textColor, @textShadow);
+	*background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+	.reset-filter();
+
+	// in these cases the gradient won't cover the background, so we override
+	&:hover, &:active, &.active, &.disabled, &[disabled] {
+		color: @textColor;
+		background-color: @endColor;
+		*background-color: darken(@endColor, 5%);
+	}
+
+	// IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+	&:active,
+	&.active {
+		background-color: darken(@endColor, 10%) e("\9");
+	}
+}
+
+// IE7 inline-block
+// ----------------
+.ie7-inline-block() {
+	*display: inline; /* IE7 inline-block hack */
+	*zoom: 1;
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+.ie7-restore-left-whitespace() {
+	*margin-left: .3em;
+
+	&:first-child {
+		*margin-left: 0;
+	}
+}
+
+.ie7-restore-right-whitespace() {
+	*margin-right: .3em;
+}

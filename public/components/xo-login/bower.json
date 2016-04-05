@@ -1,0 +1,35 @@
+{
+  "name": "xo-login",
+  "description": "Login component",
+  "version": "0.0.67",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "xo-popup": "~0.0.1"
+  }
+}

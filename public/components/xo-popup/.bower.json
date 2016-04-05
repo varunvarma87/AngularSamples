@@ -1,0 +1,45 @@
+{
+  "name": "xo-popup",
+  "description": "PopUp component",
+  "version": "0.0.1",
+  "keywords": [
+    "js",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "test",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1"
+  },
+  "devDependencies": {
+    "jquery": "~1.11.1"
+  },
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "c5b23752325e81866c92173ad366c43bc9368883"
+  },
+  "_source": "git@github.paypal.com:NodeXOShared/xo-component-popup.git",
+  "_target": "~0.0.1",
+  "_originalSource": "xo-popup"
+}

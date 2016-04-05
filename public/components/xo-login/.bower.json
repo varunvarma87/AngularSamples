@@ -1,0 +1,44 @@
+{
+  "name": "xo-login",
+  "description": "Login component",
+  "version": "0.0.67",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "xo-popup": "~0.0.1"
+  },
+  "_release": "0.0.67",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.67",
+    "commit": "ee20ce92def9d59784b2f3aaa53e8f2f40e76ea1"
+  },
+  "_source": "git@github.paypal.com:Checkout-R/xo-login-component.git",
+  "_target": "~0.0.52",
+  "_originalSource": "xo-login"
+}

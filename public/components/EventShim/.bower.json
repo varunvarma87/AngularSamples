@@ -1,0 +1,13 @@
+{
+  "name": "EventShim",
+  "homepage": "https://github.com/jwmcpeak/EventShim",
+  "_release": "f69a65f3b3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f69a65f3b32dfd2bef1442caf790a65e04c26e5a"
+  },
+  "_source": "https://github.com/jwmcpeak/EventShim.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/jwmcpeak/EventShim.git"
+}

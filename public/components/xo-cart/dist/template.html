@@ -1,0 +1,101 @@
+<div class="cartContainer" content="xospartaweb" ng-if="showAmt()">
+    <div class="transactionDetailsContainer" ng-class="{cart:showCart}">
+
+        <a href="#transactionCartDetails"
+           class="transactionDetails scTrack:hermes-cartExpanded"
+           aria-controls="transctionCartDetails" aria-label="Shopping cart" role="button" ng-click="toggleCart($event)">
+            <span class="totalWrapper clearfix" id="totalWrapper" ng-if="hasItems">
+                <span aria-label="Your Cart" id="yourCart" class="accessAid">
+                    {{ content('header.subTotal') }}
+                </span>
+                <span id="transactionCart" ng-class="{hasItems:hasItems}">
+                    <span class="cartIcon"></span>
+                    <span>
+                        <format-currency code="checkoutCart.purchase.amounts.total.currency_code" amount="checkoutCart.purchase.amounts.total.amount"></format-currency>
+                    </span>
+                    <span ng-if="checkoutCart.purchase.items" class="arrow"/>
+                </span>
+            </span>
+        </a>
+
+        <span class="totalWrapper clearfix" id="totalWrapper" ng-if="!hasItems">
+            <span aria-label="Your Cart" id="yourCart" class="accessAid">{{ content('header.subTotal') }}</span>
+            <span id="transactionCart">
+                <span class="cartIcon"></span>
+                <span>
+                    <format-currency code="checkoutCart.purchase.amounts.total.currency_code" amount="checkoutCart.purchase.amounts.total.amount" display-code="1"></format-currency>
+                </span>
+            </span>
+        </span>
+
+        <div class="transctionCartDetails" aria-hidden="true" ng-if="hasItems">
+            <div class="details">
+                <h3 ng-if="checkoutAppData.merchant" class="merchantName">{{ checkoutAppData.merchant.brand_name }}</h3>
+
+                <ul class="detail-items">
+                    <li ng-repeat="item in checkoutCart.purchase.items" class="items">
+                        <span class="itemName">{{ item.name }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="item.amount.currency_code" amount="item.amount.amount"></format-currency>
+                            <span class="currencyCode">{{ item.amount.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li ng-if="checkoutCart.purchase.amounts.tax">
+                        <span class="itemName">{{ content('header.tax') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.tax.currency_code" amount="checkoutCart.purchase.amounts.tax.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.tax.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li ng-if="checkoutCart.purchase.amounts.shipping">
+                        <span class="itemName">{{ content('header.shipping') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.shipping.currency_code" amount="checkoutCart.purchase.amounts.shipping.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.shipping.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li ng-if="checkoutCart.purchase.amounts.shipping_discount">
+                        <span class="itemName">{{ content('header.shippingDiscount') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.shipping_discount.currency_code" amount="checkoutCart.purchase.amounts.shipping_discount.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.shipping_discount.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li ng-if="checkoutCart.purchase.amounts.handling">
+                        <span class="itemName">{{ content('header.handling') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.handling.currency_code" amount="checkoutCart.purchase.amounts.handling.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.handling.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li ng-if="checkoutCart.purchase.amounts.insurance">
+                        <span class="itemName">{{ content('header.insurance') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.insurance.currency_code" amount="checkoutCart.purchase.amounts.insurance.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.insurance.currency_code }}</span>
+                        </span>
+                    </li>
+
+                    <li class="subTotal" ng-if="checkoutCart.purchase.amounts.total">
+                        <span class="itemName">{{ content('header.total') }}</span>
+                        <span class="itemPrice">
+                            <format-currency code="checkoutCart.purchase.amounts.total.currency_code" amount="checkoutCart.purchase.amounts.total.amount"></format-currency>
+                            <span class="currencyCode">{{ checkoutCart.purchase.amounts.total.currency_code }}</span>
+                        </span>
+                    </li>
+                </ul>
+
+                <a href="#" id="closeCart" role="button" class="actions" ng-click="closeCart($event)">
+                    <span class="accessAid">{{ content('header.close') }}</span>
+                </a>
+
+            </div>
+            <div class="pointer"> </div>
+        </div>
+    </div>
+</div>

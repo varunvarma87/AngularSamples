@@ -1,0 +1,20 @@
+{>"layouts/angmaster"/}
+
+{<pageTitle}{@pre type="content" key="angularTaxId.pageHeading" /}{/pageTitle}
+{<heading}
+	<ng-include src="'pages/taxidHeading.html'"></ng-include>
+{/heading}
+{<main}
+        <div class="tax-main-view">
+            <ng-view></ng-view>
+        </div>
+
+        <!-- Templates -->
+        <script type="text/ng-template" id="/taxids.html">
+            <ng-include src="'pages/taxids.html'"></ng-include>
+        </script>
+
+        <script type="text/ng-template" id="/taxidAdd.html">
+            <ng-include src="'pages/taxidAdd.html'"></ng-include>
+        </script>
+{/main}

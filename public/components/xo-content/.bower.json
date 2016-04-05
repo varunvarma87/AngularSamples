@@ -1,0 +1,42 @@
+{
+  "name": "xo-content",
+  "description": "Content Component",
+  "version": "0.0.44",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "index.js",
+    "test",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "_release": "0.0.44",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.44",
+    "commit": "ad6134f4f1bfc4bb119a2df72736e485ab2a7d8b"
+  },
+  "_source": "git@github.paypal.com:NodeXOShared/xo-content-component.git",
+  "_target": "~0.0.4",
+  "_originalSource": "xo-content"
+}

@@ -1,0 +1,235 @@
+/* Todo: Rethink name of the file, looks like more generic view lib and not specific to business */
+
+
+#content {
+  &:before{
+    height: 94px;
+    display: block;
+
+    @media print {
+      height: 0;
+    }
+  }
+  .layout {
+    position: relative;
+    margin-top: -83px;
+  }
+}
+
+.hide-elem {
+	display: none;
+}
+
+/* body container */
+.section{
+  background-color: @white;
+  border-radius: (@border-radius-base + 1px);
+  .box-shadow(@shadow: 0 1px 4px rgba(.25,.25,.25,.25));
+  margin-bottom: 20px;
+  min-height: 365px;
+  padding: 7px 15px 15px;
+
+  @media print {
+    box-shadow: none;
+  }
+
+  .heading {
+    border-bottom: 1px solid #eee;
+    line-height: 40px;
+    margin-bottom: 10px;
+
+    h1 {
+      font-size: 1.429em;
+      font-weight: bold;
+      line-height: 40px;
+      margin: 0;
+    }
+  }
+
+  .sectionHeader {
+    border-bottom: 1px solid @grayLighter;
+    line-height:40px;
+
+    h1 {
+      line-height: 2em;
+      font-weight: bold;
+    }
+    h3 {
+      border-bottom: 1px solid @grayLighter;
+      color: #555;
+      font-size: @baseFontSize + 4;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 18px;
+      padding: 0 0 12px;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  .sectionContent {
+    .clearfix();
+    margin: 10px 0;
+
+    &.no-margin-top {
+      margin-top: 0;
+    }
+  }
+}
+
+/* non-js alert */
+.nonjsAlert {
+	border-top: 1px solid #990000;
+	border-bottom: 1px solid #990000;
+	background-color: #ffff99;
+	color: #990000;
+	margin: 0;
+	padding: .5em;
+	text-align: center;
+}
+
+.box {
+	width: 100%;
+	overflow: hidden;
+}
+
+
+/* content wrapper */
+.contents {
+	padding-top: 95px;
+    outline: 0 none;
+}
+
+.container {
+  box-sizing: content-box;
+  max-width: 960px;
+}
+/* Errors */
+
+.alert {
+  color: #424242;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 17px;
+}
+
+.alert-danger i {
+  background-position: 0 -1800px;
+}
+
+.alert-warning i {
+  background-position: 0 -3400px;
+}
+
+
+
+.privileges-notification {
+	position: relative;
+	min-height: 475px;
+
+	.privilege-block {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		text-align: center;
+		background-color: #fff;
+	}
+
+	.vertical-align {
+		position: relative;
+		display: inline-block;
+		max-width: 500px;
+		padding-top: 200px;
+		color: #666;
+		font: lighter 20px/27px "Helvetica Neue Light";
+	}
+}
+
+//----Typography
+.type-combo1{
+	font-family: @sansFontFamily;
+	color: #424242;
+	font-weight: bold;
+}
+.type-sec-body-copy-bold{
+	.type-combo1;
+	font-family: @fontFamily;
+	font-size:  @baseFontSize - 2;
+}
+
+
+.type-sec-body-copy-bold{
+	.type-combo1;
+	font-family: @fontFamily;
+	font-size:  @baseFontSize - 2;
+}
+
+.type-sec-body-copy{
+	.type-sec-body-copy-bold;
+	font-weight: normal;
+}
+
+.type-small-body-copy{
+	font-family: @fontFamily;
+	font-size:  @baseFontSize - 3;
+	color: @gray;
+	font-weight: normal;
+}
+
+.type-large-body-copy-bold{
+	.type-combo1;
+	font-size:  @baseFontSize + 2;
+}
+
+
+.type-main-body-copy-bold{
+	.type-combo1;
+	font-size:  @baseFontSize;
+}
+
+.globalSprite{background: transparent url(https://www.paypalobjects.com/webstatic/i/ex_me2/sprite/GlobalSprite_1x_112.png) no-repeat 0 0;}
+
+#page #contents{
+	.loading {
+		min-height: 147px;
+		display: block;
+		background: @white url(https://www.paypalobjects.com/webstatic/i/ex_ce2/icon/icon_loadingGraphic_42x42_2011_10_24.gif) no-repeat center center;
+		.hide-text;
+		background-color: @white;
+	}
+
+	.fetching {
+		.loading-icon-renderer.fetchLoading{
+			display: table;
+			margin:  20px auto;
+		}
+	}
+
+	.loading-icon-renderer, .loading-icon-renderer.fetchLoading{
+		display: none;
+	}
+}
+
+.loading-icon-renderer{
+	display: none;
+	height:300px;
+	text-align:center;
+	width: 100%;
+
+	div{
+		display:table-cell;
+		vertical-align:middle;
+	}
+}
+/* delete this if we are not using it */
+#page .no-records p{
+	cursor: default;
+	margin: 50px 0;
+	text-align: center;
+	font-size: @baseFontSize;
+	color: @grayDarker;
+}

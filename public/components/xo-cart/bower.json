@@ -1,0 +1,45 @@
+{
+  "name": "xo-cart",
+  "description": "Cart component",
+  "version": "0.1.52",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "test",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular-mocks": "1.3.9",
+    "angular": "1.3.9",
+    "angular-sanitize": "1.3.9",
+    "requirejs": "^2.1.11",
+    "requirejs-text": "~2.0.12",
+    "xo-checkout": "~0.0.8"
+  },
+  "devDependencies": {
+    "jquery": "~1.11.1",
+    "squid": "~0.0.65",
+    "angular-ui-router": "~0.2.13"
+  }
+}

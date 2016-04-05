@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{context.locality.language}">
+<head>
+    <meta charset="utf-8" />
+    {>"components/UVLPageInfo/templates/pageInfo"/}
+    <link rel="shortcut icon" sizes="196x196" href="https://www.paypalobjects.com/webstatic/icon/pp196.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/pp32.png" />
+    <title>{+pageTitle}{@pre type="content" key="template.title"/}{/pageTitle}</title>
+    <link rel="stylesheet" href="{context.links.cssBaseUrl}/app.css" />
+
+    {! For local environment testing !}
+    <script src="https://www.paypal.com/bizcomponents/js/{context.locality.country}/{context.locality.language}/header-footer/header-footer.js"></script>
+    <link rel="stylesheet" href="https://www.paypal.com/bizcomponents/css/header-footer.css" />
+
+    <!--<link rel="stylesheet" href="https://www.paypal.com/bizcomponents/css/header-footer.css" />-->
+    <!--<script src="/bizcomponents/js/{context.locality.country}/{context.locality.language}/header-footer/header-footer.js"></script>-->
+
+</head>
+<body>
+    <div id="popup">
+        <header>
+            {>"inc/merchant-header" showMinimalHeader="false" /}
+        </header>
+        <div class="contents" id="contents" role="main">
+	        <div class="heading">
+	            {+heading/}
+	        </div>
+            {+main /}
+        </div>
+	    {>"inc/merchant-footer" /}
+    </div>
+    {@ne key="appjs" value=""}
+        <script data-main="{context.links.jsBaseUrl}/{appjs}" src="{context.links.jsBaseUrl}/lib/require.js"></script>
+    {/ne}
+    {>"components/UVLSiteCatalyst/templates/siteCatalyst" sys=sys disableOnLoad=disableOnLoad /}
+    {>"components/UVLPageTracking/templates/pageTracking" isMobileOptimized=isMobileOptimized /}
+</body>
+</html>

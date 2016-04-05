@@ -1,0 +1,35 @@
+{
+  "name": "xo-checkout",
+  "description": "Shared checkout code",
+  "version": "0.0.33",
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "index.js",
+    "app",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "squid": "~0.0.1"
+  },
+  "_release": "0.0.33",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.33",
+    "commit": "a5814ded42b03dadbe802886d092481cb716a234"
+  },
+  "_source": "git@github.paypal.com:Checkout-R/xo-checkout-component.git",
+  "_target": "~0.0.19",
+  "_originalSource": "xo-checkout"
+}

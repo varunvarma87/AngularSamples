@@ -1,0 +1,232 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  padding: 11px 15px 11px 8px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 1.4545em;
+  text-align: center;
+  text-decoration: none;
+  cursor:pointer;
+
+  .gradientBar();
+  .box-sizing(border-box);
+
+  // Hover state
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    .gradientBar(#005282, #0083cf, #fff, 0 -1px #004c77, 0 1px #1794DC inset, #00629B #004872 #003b5d);
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    .tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    text-decoration: none;
+    .gradientBar(#005282, #006AA8, #fff, 0 -1px #004268, 0 2px 4px #004268 inset, #004269 #003D60 #003A5C);
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled],
+  &.disabled:hover,
+  &[disabled]:hover,
+  &.disabled:active,
+  &[disabled]:active {
+    .gradientBar(#e5e5e5, #f7f7f7, #a6a6a6, 0 1px #f4f4f4, 0 1px #fafafa inset, #cfcfcf);
+    cursor: auto;
+  }
+
+}
+
+
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+  padding: 9px 14px;
+  font-size: 1.231em;
+  line-height: normal;
+  border-radius: 5px;
+}
+.btn-large [class^="icon-"] {
+  margin-top: 2px;
+}
+
+
+// Small = mdeium from core components
+.btn-small {
+  font-size: 1em;
+  padding-bottom: 7px;
+}
+.btn-small [class^="icon-"] {
+  margin-top: 0;
+}
+
+// Mini = small from core components
+.btn-mini {
+  min-width: 44px;
+  padding: 4px 8px;
+  font-size: 0.8461em;
+}
+
+
+// Block button
+// -------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  .box-sizing(border-box);
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Set the backgrounds
+// -------------------------
+
+// Primary - Blue default 
+.btn-primary {
+  .gradientBar();
+}
+
+// Secondary - Gray Color
+.btn-secondary {
+  .gradientBar(#bfbfbf,#e0e0e0, #333, 0 1px #e0e0e0, 0 1px #ececec inset, #cbcbcb #b2b2b2 #8b8b8b);
+
+  &:hover,
+  &:focus {
+    .gradientBar(#a5a5a5, #e0e0e0, #333, 0 1px #e0e0e0, 0 1px #ebe9ec inset, #cbcbcb #b2b2b2 #8d8d8d);
+  }
+
+  &:active,
+  &.active {
+    .gradientBar(#a5a5a5, #ccc, #333, 0 1px #e0e0e0, 0 2px 4px #737373 inset, #cbcbcb #b2b2b2 #8d8d8d);
+  }
+}
+
+// Light Secondary -- Light gray color
+.btn-light {
+  .gradientBar(#dedede, #f5f5f5, #333, 0 1px #efefef, 0 1px #fff inset, #dddddd #d9d9d9 #bdbdbd);
+
+  &:hover,
+  &:focus {
+    .gradientBar(#d1d1d1, #ebebeb, #333, 0 1px #efefef, 0 1px #f5f5f5 inset, #dddddd #d9d9d9 #bdbdbd);
+  }
+
+  &:active,
+  &.active {
+    .gradientBar(#d1d1d1, #dedede, #333, 0 1px #efefef,  0 2px 4px #999999 inset, #dddddd #d9d9d9 #bdbdbd);
+  }
+}
+
+// Error or Alert - Red color
+.btn-danger {
+    .gradientBar(#b32317, #ff3421, #fff, 0 -1px #992c25, 0 1px #ffa199 inset, #ad2317 #801A11 #66150d);
+
+  &:hover,
+  &:focus {
+    .gradientBar(#b32317, #e52e1e, #fff, 0 -1px #80251f, 0 1px #e5918a inset, #9c2014 #7a1910 #59120c);
+  }
+
+  &:active,
+  &.active {
+    .gradientBar(#991f14, #d92c1c, #fff, 0 -1px #70211b, 0 2px 4px #66130d inset, #6e150d #59110b #470e09);
+  }
+}
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}
+
+
+// Link buttons
+// --------------------------------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active,
+.btn-link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  .box-shadow(none);
+}
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: @link-color;
+  border-radius: 0;
+}
+.btn-link:hover {
+  color: @link-hover-color;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover {
+  color: @gray-dark;
+  text-decoration: none;
+}

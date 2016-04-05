@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-4">[[ getContent('angularTaxId.taxid') ]]</div>
+    <div class="col-md-8">
+        <div class="row" ng-repeat="taxid in taxids">
+            <div class="col-md-8">
+                [[taxid.display]] [[taxid.value]]
+            </div>
+            <div class="col-md-4">
+                <a ng-if="!taxid.isPresent" title='[[ getContent('angularTaxId.add') ]] [[taxid.display]]' href="TaxIdNg/add/[[taxid.type]]">[[ getContent('angularTaxId.add') ]] [[taxid.type]]</a>
+                <a ng-if="taxid.isPresent" title='[[ getContent('angularTaxId.add') ]] [[taxid.display]]' href="TaxIdNg/update/[[taxid.type]]">[[ getContent('angularTaxId.update') ]] [[taxid.type]]</a>
+            </div>
+        </div>
+    </div>
+</div>

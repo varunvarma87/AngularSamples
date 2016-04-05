@@ -1,0 +1,29 @@
+{@if cond="'{showMinimalHeader}' == 'true'"}
+	<script>
+		if(merchantheaderfooter) {
+			merchantheaderfooter.init({
+				"hideSwitchToClassic" : true,
+				"showNotifications": false,
+				"showSettings": false,
+				"viewName": "{viewName|s}",
+				"showFooterMainNav": false,
+				"showFooterLegalNav": true
+			});
+		}
+	</script>
+{:else}
+	<script>
+		if(merchantheaderfooter) {
+			merchantheaderfooter.init({
+				"hideSwitchToClassic" : false,
+				"showNotifications": true,
+				"showSettings": true,
+				"viewName": "{viewName|s}",
+				"showFooterMainNav": true,
+				"showFooterLegalNav": true
+			});
+		}
+	</script>
+{/if}
+
+<div class="merchant-header"></div>

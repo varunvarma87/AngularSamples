@@ -1,0 +1,36 @@
+{
+  "name": "xo-popup",
+  "description": "PopUp component",
+  "version": "0.0.1",
+  "keywords": [
+    "js",
+    "paypal",
+    "paypalui",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "",
+  "main": [
+    "dist/*"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".bowerrc",
+    ".jshintrc",
+    "test",
+    "Gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1"
+  },
+  "devDependencies": {
+    "jquery": "~1.11.1"
+  }
+}

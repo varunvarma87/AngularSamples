@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class='' lang="{context.locality.language}">
+<head>
+    <meta charset="utf-8" />
+    {>"components/UVLPageInfo/templates/pageInfo"/}
+    <link rel="shortcut icon" sizes="196x196" href="https://www.paypalobjects.com/webstatic/icon/pp196.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/pp32.png" />
+
+    <title>{+pageTitle}{@pre type="content" key="template.title"/}{/pageTitle}</title>
+    <base href="/angularTaxId/">
+
+    <link rel="stylesheet" href="{context.links.cssBaseUrl}/app.css" />
+
+    <!--{! For local environment testing !}-->
+    <!--Country and Locale hardcoded-->
+    <script src="https://www.paypal.com/bizcomponents/js/US/en/header-footer/header-footer.js"></script>
+    <link rel="stylesheet" href="https://www.paypal.com/bizcomponents/css/header-footer.css" />
+
+    <script>
+        var loccontent = [];
+        var addContent = function(country, lang, content) {
+            loccontent = content;
+        }
+    </script>
+    <script src="locales/{context.locality.country}/{context.locality.language}.js"></script>
+</head>
+<body>
+
+<div>
+    <header>
+        <script>
+            if(merchantheaderfooter) {
+                merchantheaderfooter.init({
+                    "hideSwitchToClassic" : false,
+                    "showNotifications": true,
+                    "showSettings": true,
+                    "viewName": "TaxID",
+                    "showFooterMainNav": true,
+                    "showFooterLegalNav": true
+                });
+            }
+        </script>
+        <div class="merchant-header"></div>
+    </header>
+    <div class="contents" id="contents" role="main">
+        <div class="heading">
+            {+heading/}
+        </div>
+        {+main /}
+    </div>
+    <div class="merchant-footer"></div>
+</div>
+<script data-main="{context.links.jsBaseUrl}/app" src="{context.links.jsBaseUrl}/lib/require.js"></script>
+{>"components/UVLSiteCatalyst/templates/siteCatalyst" sys=sys disableOnLoad=disableOnLoad /}
+{>"components/UVLPageTracking/templates/pageTracking" isMobileOptimized=isMobileOptimized /}
+</body>
+</html>
